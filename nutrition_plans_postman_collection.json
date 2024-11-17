@@ -1,0 +1,178 @@
+{
+  "info": {
+    "_postman_id": "5678abcd-1234-5678-90ab-1c23456789ab",
+    "name": "Meal Plans API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "_exporter_id": "37898052"
+  },
+  "item": [
+    {
+      "name": "Create Meal Plans",
+      "item": [
+        {
+          "name": "Create Meal Plan 1 (Weight Loss Plan)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Weight Loss Plan 1\",\n    \"description\": \"A meal plan to help with weight loss\",\n    \"calories\": 1500,\n    \"protein\": 120,\n    \"carbs\": 150,\n    \"fat\": 50,\n    \"fitness_goals\": [\"weight_loss\"]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/meal-plans",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "meal-plans"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Meal Plan 2 (Muscle Gain Plan)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Muscle Gain Plan 1\",\n    \"description\": \"A meal plan for muscle gain\",\n    \"calories\": 2500,\n    \"protein\": 200,\n    \"carbs\": 300,\n    \"fat\": 80,\n    \"fitness_goals\": [\"muscle_gain\"]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/meal-plans",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "meal-plans"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Meal Plan 3 (Balanced Plan)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Balanced Plan\",\n    \"description\": \"A meal plan that works for both weight loss and muscle gain\",\n    \"calories\": 2000,\n    \"protein\": 150,\n    \"carbs\": 200,\n    \"fat\": 60,\n    \"fitness_goals\": [\"weight_loss\", \"muscle_gain\"]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/meal-plans",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "meal-plans"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Meal Plans",
+      "item": [
+        {
+          "name": "Get All Meal Plans",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/meal-plans",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "meal-plans"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Meal Plan by Specific plan_id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/meal-plans/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "meal-plans",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Meal Plans by Goals",
+      "item": [
+        {
+          "name": "Get Meal Plans by Multiple Fitness Goals (Example: weight_loss and muscle_gain)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/meal-plans/goals?goals=weight_loss&goals=muscle_gain",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "meal-plans",
+                "goals"
+              ],
+              "query": [
+                {
+                  "key": "goals",
+                  "value": "weight_loss"
+                },
+                {
+                  "key": "goals",
+                  "value": "muscle_gain"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
