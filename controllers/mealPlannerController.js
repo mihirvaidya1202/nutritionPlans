@@ -1,5 +1,4 @@
 const MealPlan = require('../models/mealPlan');
-const userService = require('../services/userService');
 const getNextSequence = require('../utils/getNextSequence');
 
 exports.createMealPlan = async (req, res) => {
@@ -40,18 +39,6 @@ exports.getMealPlanById = async (req, res) => {
       return res.status(404).json({ message: 'Meal plan not found' });
     }
     res.json(mealPlan);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-exports.getSuggestedMealPlans = async (req, res) => {
-  try {
-    const user = await userService.getUserProfile(req.params.user_id);
-    const fitnessGoal = user.fitness_goal;
-
-    const mealPlans = await MealPlan.find({ fitness_goals: fitnessGoal });
-    res.json(mealPlans);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
