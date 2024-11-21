@@ -19,7 +19,7 @@ exports.createMealPlan = async (req, res) => {
     const savedPlan = await mealPlan.save();
     res.status(201).json(savedPlan);
   } catch (error) {
-    res.status(500).json({ message: error.message }); // Return error if something fails
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -60,7 +60,6 @@ exports.getMealPlansByMultipleGoals = async (req, res) => {
   
       res.json(mealPlans);
     } catch (error) {
-      // Log the error message in case of failure
       console.error('Error fetching meal plans:', error.message);
       res.status(500).json({ message: error.message });
     }

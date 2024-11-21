@@ -1,27 +1,26 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const mealPlanRoutes = require('./routes/mealPlanRoutes');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI;
 
-// Middleware to parse JSON requests
 app.use(express.json());
 
-// Use routes for meal plan operations
 app.use('/api', mealPlanRoutes);
 
-// Connect to MongoDB (make sure MongoDB is running)
-mongoose.connect('mongodb://localhost/mealplanner', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
   })
   .catch((error) => {
-    console.log('Error connecting to MongoDB:', error);
+    console.error('Error connecting to MongoDB:', error);
   });
 
-// Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
